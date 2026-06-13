@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عيد ميلاد سعيد يا ياسمين 💖</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Tahoma,sans-serif;
+    background:linear-gradient(180deg,#ffeef7,#ffffff);
+    text-align:center;
+    color:#444;
+}
+
+header{
+    padding:60px 20px;
+}
+
+h1{
+    color:#ff6fae;
+    font-size:3em;
+}
+
+.card{
+    background:white;
+    width:90%;
+    max-width:700px;
+    margin:20px auto;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.btn{
+    background:#ff8fbc;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#secret{
+    display:none;
+    margin-top:20px;
+    color:#ff5c9d;
+    font-weight:bold;
+}
+
+.countdown{
+    font-size:1.5em;
+    color:#ff5c9d;
+}
+
+.anim{
+    position:fixed;
+    font-size:25px;
+    animation:fall 8s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="anim" style="left:10%">🌸</div>
+<div class="anim" style="left:30%;animation-delay:2s">🐰</div>
+<div class="anim" style="left:50%;animation-delay:4s">🤍</div>
+<div class="anim" style="left:70%;animation-delay:1s">🦌</div>
+<div class="anim" style="left:90%;animation-delay:3s">✨</div>
+
+<header>
+<h1>🎂 عيد ميلاد سعيد يا ياسمين 🎂</h1>
+
+<p>
+إلى صديقتي المميزة ياسمين 🤍<br>
+هذه هدية صغيرة صنعتها خصيصًا لكِ.
+</p>
+
+<div class="countdown" id="countdown"></div>
+</header>
+
+<div class="card">
+<h2>💌 رسالة خاصة</h2>
+
+<p>
+شكرًا لأنكِ صديقة رائعة ولطيفة.<br>
+أتمنى لكِ عامًا مليئًا بالسعادة والنجاح والهدوء الذي تحبينه.<br>
+أتمنى أن تحققي أحلامكِ وأن تبقي دائمًا مبتسمة. 🌸
+</p>
+
+<button class="btn" onclick="showSecret()">
+اضغطي هنا للمفاجأة 🎁
+</button>
+
+<div id="secret">
+يا ياسمين 💖<br><br>
+أنتِ شخص مميز جدًا بالنسبة لي،
+وأتمنى أن يكون هذا العام أجمل أعوامكِ.
+عيد ميلاد سعيد! 🎂🐰🌷
+</div>
+</div>
+
+<div class="card">
+<h2>🌷 أشياء أحبها في ياسمين</h2>
+
+<p>
+📚 حبكِ للقراءة<br>
+🐰 حبكِ للأرانب<br>
+🦌 حبكِ للغزلان<br>
+🎵 حبكِ لهاني ونيوجينز<br>
+🤍 هدوؤكِ ولطفكِ
+</p>
+</div>
+
+<script>
+
+function showSecret(){
+document.getElementById("secret").style.display="block";
+}
+
+const birthday = new Date("July 13, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+let now = new Date().getTime();
+let distance = birthday - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("countdown").innerHTML =
+"🎉 متبقي على عيد ميلاد ياسمين: " + days + " يوم";
+
+},1000);
+
+</script>
+
+</body>
+</html>
