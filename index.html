@@ -50,37 +50,49 @@ h1{
     font-weight:bold;
 }
 
-.anim{
-    position:fixed;
-    font-size:25px;
-    animation:fall 8s linear infinite;
-    opacity:0.7;
-    pointer-events:none;
+/* الأنيميشن (تصحيح فقط بدون تكرار) */
+.anim {
+    position: fixed;
+    top: -50px;
+    font-size: 28px;
+    animation: fall 8s linear infinite;
+    opacity: 0.8;
+    pointer-events: none;
 }
 
-@keyframes fall{
-    from{transform:translateY(-100px);}
-    to{transform:translateY(100vh);}
+@keyframes fall {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(110vh);
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🌸 عناصر متحركة -->
+<div class="anim" style="left:5%">🦌</div>
+<div class="anim" style="left:15%;animation-delay:1s">🐰</div>
+<div class="anim" style="left:25%;animation-delay:2s">⭐</div>
+<div class="anim" style="left:35%;animation-delay:3s">🦌</div>
+<div class="anim" style="left:45%;animation-delay:4s">🐰</div>
+<div class="anim" style="left:55%;animation-delay:2s">⭐</div>
+<div class="anim" style="left:65%;animation-delay:1s">🦌</div>
+<div class="anim" style="left:75%;animation-delay:3s">🐰</div>
+<div class="anim" style="left:85%;animation-delay:2s">⭐</div>
+<div class="anim" style="left:95%;animation-delay:4s">🦌</div>
+
 <!-- 🎵 الموسيقى -->
-<audio id="music" controls>
+<audio id="music">
   <source src="Lana Del Rey - Brooklyn Baby (Official Audio)(mp3j.cc).mp3" type="audio/mpeg">
 </audio>
 
-<button onclick="document.getElementById('music').play()">
+<button class="btn" onclick="playMusic()">
 تشغيل الأغنية 🎵
 </button>
-<script>
-// تشغيل الموسيقى عند أول ضغط
-document.addEventListener("click", function(){
-    document.getElementById("music").play();
-}, { once:true });
-</script>
 
 <header>
 <h1>🎂 عيد ميلاد سعيد يا ياسمين 🎂</h1>
@@ -92,23 +104,13 @@ document.addEventListener("click", function(){
 <h2>💌 رسالة خاصة</h2>
 
 <p>
-وااععهه يااسميننعهه 😭💕<br><br>
-
+وااععهه يااسميننععهه 😭💕<br><br>
 ايلاافيووو ءموااحهه 💋💕<br><br>
-
-علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش 😭🤏<br><br>
-
-المهمم كل عاامم ونتيي بخيرر ججييرليي 😭🤏💕<br><br>
-
-وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا 🤍🌷<br><br>
-
-ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك 😭💕<br><br>
-
-ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو 🌸🤍<br><br>
-
-ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏💕<br><br>
-
-ياااربيي ولاا عمرك 14 🎂🐰🦌✨
+علابالي بلي عندك 28 يوم هكاك ونتي تستناايي 😭🤏<br><br>
+المهم كل عام وانتي بخير 🤍🌷<br><br>
+ولعقوبة لسنوات جديدة من عمرك 🤍🌸<br><br>
+والله نحبك بزاف 😭💕<br><br>
+يا رب تعيشي سنين فرح 🎂🐰🦌✨
 </p>
 
 <button class="btn" onclick="document.getElementById('secret').style.display='block'">
@@ -122,13 +124,19 @@ document.addEventListener("click", function(){
 
 </div>
 
-<!-- 🌸 زينة -->
-<div class="anim" style="left:10%">🌸</div>
-<div class="anim" style="left:25%;animation-delay:1s">🐰</div>
-<div class="anim" style="left:40%;animation-delay:2s">✨</div>
-<div class="anim" style="left:55%;animation-delay:3s">🦌</div>
-<div class="anim" style="left:70%;animation-delay:4s">🌷</div>
-<div class="anim" style="left:85%;animation-delay:2s">💖</div>
+<script>
+function playMusic(){
+    const music = document.getElementById("music");
+    music.play().catch(() => {
+        alert("اضغطي مرة أخرى لتشغيل الموسيقى 🎵");
+    });
+}
+
+// تشغيل أول مرة عند أي ضغط في الصفحة (اختياري)
+document.addEventListener("click", function(){
+    document.getElementById("music").play().catch(()=>{});
+}, { once:true });
+</script>
 
 </body>
 </html>
