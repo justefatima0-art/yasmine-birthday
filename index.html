@@ -25,6 +25,7 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:10;
+transition:opacity 0.8s ease;
 }
 
 #startBtn{
@@ -64,6 +65,18 @@ animation:drop 8s linear infinite;
 0%{transform:translateY(-50px);opacity:1;}
 100%{transform:translateY(110vh);opacity:0;}
 }
+
+/* انفجار */
+.burst{
+position:absolute;
+font-size:20px;
+animation:burstAnim 1.5s ease-out forwards;
+}
+
+@keyframes burstAnim{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(2);opacity:0;}
+}
 </style>
 </head>
 
@@ -88,9 +101,9 @@ animation:drop 8s linear infinite;
 إيلافيووو 🤍✨<br>
 هذا مش مجرد موقع… هذا إحساس 💌<br><br>
 
-كل لحظة في حياتك تستاهل حب وهدوء زي شخصيتك INFJ 🌙<br><br>
+كل لحظة في حياتك تستاهل حب وهدوء 🌙<br><br>
 
-الأرانب، الغزلان، المطر، القمر… كل هذا يشبهك 🌸<br>
+الأرانب، الغزلان، المطر، القمر… يشبهونك 🌸<br>
 هادئة… جميلة… مختلفة 💖<br><br>
 
 I LOVE YOU 🤍
@@ -104,7 +117,7 @@ I LOVE YOU 🤍
 
 <script>
 
-// 🎁 فتح الهدية
+/* 🎁 فتح الهدية */
 function start(){
 document.getElementById("startScreen").style.opacity="0";
 
@@ -116,26 +129,42 @@ document.getElementById("music").play();
 burst();
 },800);
 }
+
+/* ✨ انفجار */
 function burst(){
 for(let i=0;i<40;i++){
 let s=document.createElement("div");
+s.className="burst";
 s.innerHTML="✨";
-s.style.position="absolute";
 s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*100+"vh";
-s.style.fontSize="20px";
-s.style.animation="drop 3s linear";
 document.body.appendChild(s);
 
-setTimeout(()=>{s.remove()},3000);
+setTimeout(()=>{s.remove()},1500);
 }
 }
-// 💌 إظهار الرسالة
+
+/* 💌 الرسالة */
 function showMessage(){
 document.getElementById("message").style.display="block";
 }
 
-// 🌸 عناصر متساقطة (ليليز + نجوم)
+/* 🌧️ مطر */
+function rain(){
+let drop=document.createElement("div");
+drop.innerHTML="🌧️";
+drop.style.position="absolute";
+drop.style.left=Math.random()*100+"vw";
+drop.style.top="-20px";
+drop.style.fontSize="18px";
+drop.style.animation="drop 6s linear";
+document.body.appendChild(drop);
+
+setTimeout(()=>{drop.remove()},6000);
+}
+setInterval(rain,300);
+
+/* 🌸 عناصر عشوائية */
 let symbols=["🌸","✨","🌙","💖"];
 for(let i=0;i<60;i++){
 let d=document.createElement("div");
@@ -148,18 +177,6 @@ document.body.appendChild(d);
 }
 
 </script>
-function rain(){
-let drop=document.createElement("div");
-drop.innerHTML="🌧️";
-drop.style.position="absolute";
-drop.style.left=Math.random()*100+"vw";
-drop.style.top="-20px";
-drop.style.fontSize="18px";
-drop.style.animation="fall 6s linear infinite";
-document.body.appendChild(drop);
 
-setTimeout(()=>{drop.remove()},6000);
-}
-setInterval(rain,200);
 </body>
 </html>
