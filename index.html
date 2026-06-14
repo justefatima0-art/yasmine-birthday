@@ -113,7 +113,7 @@ button {
     pointer-events: none;
 }
 
-/* 💌 message box */
+/* 💌 message */
 .message {
     position: absolute;
     top: 50%;
@@ -135,12 +135,12 @@ button {
 
 <body>
 
-<!-- 🎧 music -->
-<!-- 🎧 music -->
+<!-- 🎧 MUSIC (BROOKLYN BABY) -->
 <audio id="music" loop>
   <source src="brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
-<!-- 🔐 login -->
+
+<!-- 🔐 LOGIN -->
 <div id="login">
     <h2>💗 أدخل كلمة السر</h2>
     <input type="password" id="pass" placeholder="••••••">
@@ -149,7 +149,7 @@ button {
 
 <div id="flash" class="flash"></div>
 
-<!-- 🌍 scene -->
+<!-- 🌍 SCENE -->
 <div id="scene">
 
     <img id="moon" src="https://i.imgur.com/9XH1XyS.png">
@@ -167,15 +167,15 @@ button {
 
 <script>
 
-/* 🔐 password */
+/* 🔐 PASSWORD */
 let password = "yasmine";
 
-/* 💌 full message */
+/* 💌 FULL MESSAGE (بدون تغيير) */
 const text = `وااععهه يااسميننعهه ايلاافيووو ءموااحهه علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش المهمم كل عاامم ونتيي بخيرر ججييرليي😭🤏 وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك😭💕ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏ياااربيي ولاا عمر 14`;
 
 let i = 0;
 
-/* ✨ typing effect */
+/* ✨ TYPEWRITER */
 function typeWriter(){
     if(i < text.length){
         document.getElementById("message").innerHTML += text.charAt(i);
@@ -184,7 +184,7 @@ function typeWriter(){
     }
 }
 
-/* 🔐 login check */
+/* 🔐 LOGIN */
 function check(){
     let p = document.getElementById("pass").value;
 
@@ -192,18 +192,20 @@ function check(){
         document.getElementById("login").style.display = "none";
         document.getElementById("scene").style.display = "block";
 
-        document.getElementById("music").play();
+        /* 🎧 FIXED MUSIC PLAY */
+        let music = document.getElementById("music");
+        music.currentTime = 0;
+        music.play().catch(()=>{});
 
         startRain();
         lightning();
-
         typeWriter();
     } else {
         alert("كلمة السر خاطئة 💔");
     }
 }
 
-/* 🌧️ rain */
+/* 🌧️ RAIN */
 function startRain(){
     for(let i=0;i<150;i++){
         let r = document.createElement("div");
@@ -214,7 +216,7 @@ function startRain(){
     }
 }
 
-/* ⚡ lightning */
+/* ⚡ LIGHTNING */
 function lightning(){
     setInterval(()=>{
         let flash = document.getElementById("flash");
