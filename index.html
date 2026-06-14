@@ -15,7 +15,9 @@ body{
     overflow-x:hidden;
 }
 
-header{ padding:60px 20px; }
+header{
+    padding:60px 20px;
+}
 
 h1{
     color:#ff6fae;
@@ -65,23 +67,21 @@ h1{
 
 <body>
 
-<!-- 🎵 الصوت (مهم) -->
+<!-- 🎵 الموسيقى -->
 <audio id="music" loop>
   <source src="brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function playMusic(){
+// تشغيل الموسيقى عند أول ضغط
+document.addEventListener("click", function(){
     document.getElementById("music").play();
-}
-
-// تشغيل عند أول ضغط في الصفحة
-document.addEventListener("click", playMusic, { once:true });
+}, { once:true });
 </script>
 
 <header>
 <h1>🎂 عيد ميلاد سعيد يا ياسمين 🎂</h1>
-<p>إلى أجمل ياسمين 🤍🌷</p>
+<p>إلى أجمل ياسمين في العالم 🤍🌷</p>
 </header>
 
 <div class="card">
@@ -89,26 +89,43 @@ document.addEventListener("click", playMusic, { once:true });
 <h2>💌 رسالة خاصة</h2>
 
 <p>
-وااععهه يااسمين 💖<br>
-كل عام وأنتِ بخير 🌸
+وااععهه يااسميننعهه 😭💕<br><br>
+
+ايلاافيووو ءموااحهه 💋💕<br><br>
+
+علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش 😭🤏<br><br>
+
+المهمم كل عاامم ونتيي بخيرر ججييرليي 😭🤏💕<br><br>
+
+وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا 🤍🌷<br><br>
+
+ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك 😭💕<br><br>
+
+ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو 🌸🤍<br><br>
+
+ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏💕<br><br>
+
+ياااربيي ولاا عمرك 14 🎂🐰🦌✨
 </p>
 
 <button class="btn" onclick="document.getElementById('secret').style.display='block'">
-اضغطي للمفاجأة 🎁
+🎁 اضغطي للمفاجأة
 </button>
 
 <div id="secret">
-💖 أحبك بزاف بزاف 💖
+💖 أحبك بزاف بزاف 💖<br>
+هذا الموقع كامل صنعته خصيصًا ليك 🤍🌷🐰
 </div>
 
 </div>
 
 <!-- 🌸 زينة -->
 <div class="anim" style="left:10%">🌸</div>
-<div class="anim" style="left:30%">🐰</div>
-<div class="anim" style="left:50%">✨</div>
-<div class="anim" style="left:70%">🌷</div>
-<div class="anim" style="left:90%">💖</div>
+<div class="anim" style="left:25%;animation-delay:1s">🐰</div>
+<div class="anim" style="left:40%;animation-delay:2s">✨</div>
+<div class="anim" style="left:55%;animation-delay:3s">🦌</div>
+<div class="anim" style="left:70%;animation-delay:4s">🌷</div>
+<div class="anim" style="left:85%;animation-delay:2s">💖</div>
 
 </body>
 </html>
