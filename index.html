@@ -63,56 +63,32 @@ h1{
     pointer-events:none;
 }
 
-audio{
-    margin-top:15px;
-    width:300px;
-}
-
 @keyframes fall{
-    from{
-        transform:translateY(-100px);
-    }
-    to{
-        transform:translateY(100vh);
-    }
+    from{transform:translateY(-100px);}
+    to{transform:translateY(100vh);}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ملاحظة:
-ارفعي ملف الأغنية داخل المستودع باسم:
-brooklyn-baby.mp3
--->
-
-<audio id="music" controls>
-  <source src="./brooklyn-baby.mp3" type="audio/mpeg">
+<!-- 🎵 الموسيقى (بدون زر، تبدأ عند أول تفاعل) -->
+<audio id="music" loop>
+  <source src="brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
 
-<br><br>
-
-<button class="btn" onclick="playMusic()">
-🎵 تشغيل الأغنية
-</button>
-
 <script>
-function playMusic(){
+function startMusic(){
     const music = document.getElementById("music");
-    music.load();   // مهم جدًا لإعادة تحميل الملف
-    music.play().catch(err => {
-        alert("المتصفح منع التشغيل التلقائي، اضغطي على زر التشغيل داخل المشغل نفسه 🎵");
-    });
+    music.play().catch(()=>{});
 }
+
+// تشغيل عند أول تفاعل فقط
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
 </script>
 
-<br><br>
-
-<button class="btn" onclick="document.getElementById('music').play()">
-🎵 تشغيل الأغنية
-</button>
-
-
+<!-- 🌸 عناصر متحركة -->
 <div class="anim" style="left:10%">🌸</div>
 <div class="anim" style="left:20%;animation-delay:1s">🐰</div>
 <div class="anim" style="left:30%;animation-delay:2s">✨</div>
@@ -124,7 +100,6 @@ function playMusic(){
 <div class="anim" style="left:90%;animation-delay:1s">💖</div>
 
 <header>
-
 <h1>🎂 عيد ميلاد سعيد يا ياسمين 🎂</h1>
 
 <p>
@@ -133,7 +108,6 @@ function playMusic(){
 </p>
 
 <div class="countdown" id="countdown"></div>
-
 </header>
 
 <div class="card">
@@ -145,19 +119,13 @@ function playMusic(){
 
 ايلاافيووو ءموااحهه 💋💕<br><br>
 
-علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش 😭🤏<br><br>
+علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك 😭🤏<br><br>
 
-المهمم كل عاامم ونتيي بخيرر ججييرليي 😭🤏💕<br><br>
+المهم كل عام وأنتِ بخير 💕<br><br>
 
-وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا 🤍🌷<br><br>
+وانشاء الله تكون سنة أجمل من قبل 🤍🌷<br><br>
 
-ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك 😭💕<br><br>
-
-ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو 🌸🤍<br><br>
-
-ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏💕<br><br>
-
-ياااربيي ولاا عمرك 14 🎂🐰🦌✨
+يا رب تدومي 14 سنة جميلة 🎂🐰✨
 </p>
 
 <button class="btn" onclick="showSecret()">
@@ -166,7 +134,7 @@ function playMusic(){
 
 <div id="secret">
 😭💕 يا ياسمين<br><br>
-احبكك بزاف بزاف بزاف 💖<br>
+احبكك بزاف بزاف 💖<br>
 وهاد الموقع كامل صنعته خصيصًا ليك 🤍🌷🐰
 </div>
 
@@ -177,44 +145,33 @@ function playMusic(){
 <h2>🌷 أشياء أحبها في ياسمين</h2>
 
 <p>
-📚 حبكِ للقراءة<br>
-🐰 حبكِ للأرانب<br>
-🦌 حبكِ للغزلان<br>
-🎵 حبكِ للموسيقى<br>
-🤍 هدوؤكِ ولطفكِ<br>
-💖 شخصيتكِ الجميلة
+📚 القراءة<br>
+🐰 الأرانب<br>
+🦌 الغزلان<br>
+🎵 الموسيقى<br>
+🤍 الهدوء واللطف<br>
+💖 شخصيتك الجميلة
 </p>
 
 </div>
 
 <script>
 
-// كلمة السر
-let password = prompt("🔐 ادخلي كلمة السر");
-
-if(password !== "Yasmine14"){
-    document.body.innerHTML =
-    "<h1 style='margin-top:100px;color:#ff6fae'>💔 كلمة السر خاطئة</h1>";
-}
-
-// المفاجأة
+// 💌 إظهار الرسالة
 function showSecret(){
-document.getElementById("secret").style.display="block";
+    document.getElementById("secret").style.display="block";
 }
 
-// العد التنازلي
+// 🎂 العد التنازلي
 const birthday = new Date("July 13, 2026 00:00:00").getTime();
 
 setInterval(function(){
-
 let now = new Date().getTime();
 let distance = birthday - now;
-
 let days = Math.floor(distance/(1000*60*60*24));
 
 document.getElementById("countdown").innerHTML =
 "🎉 متبقي على عيد ميلاد ياسمين: " + days + " يوم";
-
 },1000);
 
 </script>
