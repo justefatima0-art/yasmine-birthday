@@ -1,229 +1,197 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>For Yasmine 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عيد ميلاد سعيد يا ياسمين 💖</title>
 
 <style>
-body {
-    margin: 0;
-    overflow: hidden;
-    font-family: Arial;
-    background: linear-gradient(135deg, #ffd6e7, #ffeefc, #dfe9ff);
+body{
+    margin:0;
+    font-family:Tahoma,sans-serif;
+    background:linear-gradient(180deg,#ffeef7,#ffffff);
+    text-align:center;
+    color:#444;
 }
 
-/* 🔐 login */
-#login {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(#ffd6e7, #0b0b1a);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    color: white;
+header{
+    padding:60px 20px;
 }
 
-input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    text-align: center;
+h1{
+    color:#ff6fae;
+    font-size:3em;
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background: #ff4f9a;
-    color: white;
-    cursor: pointer;
+.card{
+    background:white;
+    width:90%;
+    max-width:700px;
+    margin:20px auto;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* 🌍 scene */
-#scene {
-    display: none;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+.btn{
+    background:#ff8fbc;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
 }
 
-/* 🌙 moon */
-#moon {
-    position: absolute;
-    width: 120px;
-    top: 50px;
-    left: -150px;
-    animation: move 40s linear infinite;
+#secret{
+    display:none;
+    margin-top:20px;
+    color:#ff5c9d;
+    font-weight:bold;
 }
 
-@keyframes move {
-    from {left: -150px;}
-    to {left: 110%;}
+.countdown{
+    font-size:1.5em;
+    color:#ff5c9d;
 }
 
-/* 🦌 deer */
-.deer {
-    position: absolute;
-    bottom: 60px;
-    width: 170px;
-    animation: move 12s linear infinite;
+.anim{
+    position:fixed;
+    font-size:25px;
+    animation:fall 8s linear infinite;
+    opacity:0.7;
 }
 
-/* 🐇 rabbits */
-.rabbit {
-    position: absolute;
-    bottom: 40px;
-    width: 80px;
-    animation: jump 2.5s infinite;
+audio{
+    margin-top:15px;
+    width:300px;
 }
 
-@keyframes jump {
-    0% {transform: translateY(0);}
-    50% {transform: translateY(-60px);}
-    100% {transform: translateY(0);}
-}
-
-/* 🌧️ rain */
-.rain {
-    position: absolute;
-    width: 2px;
-    height: 18px;
-    background: white;
-    opacity: 0.6;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    from {transform: translateY(-100vh);}
-    to {transform: translateY(100vh);}
-}
-
-/* ⚡ flash */
-.flash {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: white;
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* 💌 message */
-.message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 85%;
-    max-height: 80vh;
-    overflow-y: auto;
-    background: rgba(255,255,255,0.75);
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    color: #333;
-    font-size: 18px;
-    line-height: 1.8;
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎧 MUSIC (BROOKLYN BABY) -->
-<audio id="music" loop>
-  <source src="brooklyn-baby.mp3" type="audio/mpeg">
+<!-- ملاحظة:
+ارفعي ملف الأغنية داخل المستودع باسم:
+brooklyn-baby.mp3
+-->
+
+<audio autoplay loop controls>
+   <source src="brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🔐 LOGIN -->
-<div id="login">
-    <h2>💗 أدخل كلمة السر</h2>
-    <input type="password" id="pass" placeholder="••••••">
-    <button onclick="check()">دخول</button>
+<div class="anim" style="left:10%">🌸</div>
+<div class="anim" style="left:20%;animation-delay:1s">🐰</div>
+<div class="anim" style="left:30%;animation-delay:2s">✨</div>
+<div class="anim" style="left:40%;animation-delay:3s">🦌</div>
+<div class="anim" style="left:50%;animation-delay:4s">🌷</div>
+<div class="anim" style="left:60%;animation-delay:5s">🤍</div>
+<div class="anim" style="left:70%;animation-delay:2s">⭐</div>
+<div class="anim" style="left:80%;animation-delay:4s">🐇</div>
+<div class="anim" style="left:90%;animation-delay:1s">💖</div>
+
+<header>
+
+<h1>🎂 عيد ميلاد سعيد يا ياسمين 🎂</h1>
+
+<p>
+إلى أجمل ياسمين في العالم 🤍🌷<br>
+هذه هدية صغيرة صنعتها خصيصًا لكِ 💕
+</p>
+
+<div class="countdown" id="countdown"></div>
+
+</header>
+
+<div class="card">
+
+<h2>💌 رسالة خاصة</h2>
+
+<p>
+وااععهه يااسميننعهه 😭💕<br><br>
+
+ايلاافيووو ءموااحهه 💋💕<br><br>
+
+علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش 😭🤏<br><br>
+
+المهمم كل عاامم ونتيي بخيرر ججييرليي 😭🤏💕<br><br>
+
+وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا 🤍🌷<br><br>
+
+ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك 😭💕<br><br>
+
+ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو 🌸🤍<br><br>
+
+ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏💕<br><br>
+
+ياااربيي ولاا عمرك 14 🎂🐰🦌✨
+</p>
+
+<button class="btn" onclick="showSecret()">
+اضغطي هنا للمفاجأة 🎁
+</button>
+
+<div id="secret">
+😭💕 يا ياسمين<br><br>
+احبكك بزاف بزاف بزاف 💖<br>
+وهاد الموقع كامل صنعته خصيصًا ليك 🤍🌷🐰
 </div>
 
-<div id="flash" class="flash"></div>
+</div>
 
-<!-- 🌍 SCENE -->
-<div id="scene">
+<div class="card">
 
-    <img id="moon" src="https://i.imgur.com/9XH1XyS.png">
-    <img class="deer" src="https://i.imgur.com/6XQZbXy.png">
+<h2>🌷 أشياء أحبها في ياسمين</h2>
 
-    <img class="rabbit" style="left:30%" src="https://i.imgur.com/2yaf2wb.png">
-    <img class="rabbit" style="left:70%" src="https://i.imgur.com/2yaf2wb.png">
-
-    <div class="message">
-        <h2>💗 رسالة لكِ 💗</h2>
-        <p id="message"></p>
-    </div>
+<p>
+📚 حبكِ للقراءة<br>
+🐰 حبكِ للأرانب<br>
+🦌 حبكِ للغزلان<br>
+🎵 حبكِ للموسيقى<br>
+🤍 هدوؤكِ ولطفكِ<br>
+💖 شخصيتكِ الجميلة
+</p>
 
 </div>
 
 <script>
 
-/* 🔐 PASSWORD */
-let password = "yasmine";
+// كلمة السر
+let password = prompt("🔐 ادخلي كلمة السر");
 
-/* 💌 FULL MESSAGE (بدون تغيير) */
-const text = `وااععهه يااسميننعهه ايلاافيووو ءموااحهه علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش المهمم كل عاامم ونتيي بخيرر ججييرليي😭🤏 وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك😭💕ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏ياااربيي ولاا عمر 14`;
-
-let i = 0;
-
-/* ✨ TYPEWRITER */
-function typeWriter(){
-    if(i < text.length){
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 30);
-    }
+if(password !== "Yasmine14"){
+    document.body.innerHTML =
+    "<h1 style='margin-top:100px;color:#ff6fae'>💔 كلمة السر خاطئة</h1>";
 }
 
-/* 🔐 LOGIN */
-function check(){
-    let p = document.getElementById("pass").value;
-
-    if(p === password){
-        document.getElementById("login").style.display = "none";
-        document.getElementById("scene").style.display = "block";
-
-        /* 🎧 FIXED MUSIC PLAY */
-        let music = document.getElementById("music");
-        music.currentTime = 0;
-        music.play().catch(()=>{});
-
-        startRain();
-        lightning();
-        typeWriter();
-    } else {
-        alert("كلمة السر خاطئة 💔");
-    }
+// المفاجأة
+function showSecret(){
+document.getElementById("secret").style.display="block";
 }
 
-/* 🌧️ RAIN */
-function startRain(){
-    for(let i=0;i<150;i++){
-        let r = document.createElement("div");
-        r.className = "rain";
-        r.style.left = Math.random()*100 + "vw";
-        r.style.animationDuration = (Math.random()*1+0.5)+"s";
-        document.body.appendChild(r);
-    }
-}
+// العد التنازلي
+const birthday = new Date("July 13, 2026 00:00:00").getTime();
 
-/* ⚡ LIGHTNING */
-function lightning(){
-    setInterval(()=>{
-        let flash = document.getElementById("flash");
-        flash.style.opacity = "0.8";
-        setTimeout(()=>flash.style.opacity="0",120);
-    }, 5000);
-}
+setInterval(function(){
+
+let now = new Date().getTime();
+let distance = birthday - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("countdown").innerHTML =
+"🎉 متبقي على عيد ميلاد ياسمين: " + days + " يوم";
+
+},1000);
 
 </script>
 
