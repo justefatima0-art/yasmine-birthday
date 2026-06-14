@@ -112,9 +112,24 @@ setTimeout(()=>{
 document.getElementById("startScreen").style.display="none";
 document.getElementById("content").style.display="block";
 document.getElementById("music").play();
+
+burst();
 },800);
 }
+function burst(){
+for(let i=0;i<40;i++){
+let s=document.createElement("div");
+s.innerHTML="✨";
+s.style.position="absolute";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+s.style.fontSize="20px";
+s.style.animation="drop 3s linear";
+document.body.appendChild(s);
 
+setTimeout(()=>{s.remove()},3000);
+}
+}
 // 💌 إظهار الرسالة
 function showMessage(){
 document.getElementById("message").style.display="block";
@@ -133,6 +148,18 @@ document.body.appendChild(d);
 }
 
 </script>
+function rain(){
+let drop=document.createElement("div");
+drop.innerHTML="🌧️";
+drop.style.position="absolute";
+drop.style.left=Math.random()*100+"vw";
+drop.style.top="-20px";
+drop.style.fontSize="18px";
+drop.style.animation="fall 6s linear infinite";
+document.body.appendChild(drop);
 
+setTimeout(()=>{drop.remove()},6000);
+}
+setInterval(rain,200);
 </body>
 </html>
