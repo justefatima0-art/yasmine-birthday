@@ -8,16 +8,14 @@
 <style>
 body{
     margin:0;
-    font-family:Tahoma, sans-serif;
+    font-family:Tahoma,sans-serif;
     background:linear-gradient(180deg,#ffeef7,#ffffff);
     text-align:center;
     color:#444;
     overflow-x:hidden;
 }
 
-header{
-    padding:60px 20px;
-}
+header{ padding:60px 20px; }
 
 h1{
     color:#ff6fae;
@@ -41,7 +39,6 @@ h1{
     padding:15px 25px;
     border-radius:30px;
     cursor:pointer;
-    font-size:16px;
 }
 
 #secret{
@@ -49,11 +46,6 @@ h1{
     margin-top:20px;
     color:#ff5c9d;
     font-weight:bold;
-}
-
-.countdown{
-    font-size:1.5em;
-    color:#ff5c9d;
 }
 
 .anim{
@@ -68,33 +60,28 @@ h1{
     from{transform:translateY(-100px);}
     to{transform:translateY(100vh);}
 }
-
-audio{
-    margin-top:20px;
-}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 الموسيقى -->
+<!-- 🎵 الصوت (مهم) -->
 <audio id="music" loop>
   <source src="brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-// تشغيل الموسيقى عند أول تفاعل
-document.addEventListener("click", function () {
-    document.getElementById("music").play().catch(()=>{});
-}, { once:true });
+function playMusic(){
+    document.getElementById("music").play();
+}
+
+// تشغيل عند أول ضغط في الصفحة
+document.addEventListener("click", playMusic, { once:true });
 </script>
 
-<!-- 🎂 المحتوى -->
 <header>
 <h1>🎂 عيد ميلاد سعيد يا ياسمين 🎂</h1>
-<p>إلى أجمل ياسمين في العالم 🤍🌷<br>هذه هدية صغيرة صنعتها خصيصًا لكِ 💕</p>
-
-<div class="countdown" id="countdown"></div>
+<p>إلى أجمل ياسمين 🤍🌷</p>
 </header>
 
 <div class="card">
@@ -102,68 +89,26 @@ document.addEventListener("click", function () {
 <h2>💌 رسالة خاصة</h2>
 
 <p>
-وااععهه يااسمين 💕<br><br>
-إيلاافيووو 🤍<br><br>
-كل عام وأنتِ بخير 🌸✨<br><br>
-أتمنى لك أيام أجمل من كل ما مضى 💖
+وااععهه يااسمين 💖<br>
+كل عام وأنتِ بخير 🌸
 </p>
 
-<button class="btn" onclick="showSecret()">
+<button class="btn" onclick="document.getElementById('secret').style.display='block'">
 اضغطي للمفاجأة 🎁
 </button>
 
 <div id="secret">
-💖 أحبك بزاف بزاف 💖<br>
-هذا الموقع كامل صنعته خصيصًا ليك 🌷🐰
+💖 أحبك بزاف بزاف 💖
 </div>
 
-</div>
-
-<div class="card">
-<h2>🌷 أشياء جميلة فيك</h2>
-<p>
-📚 حبك للقراءة<br>
-🐰 الأرانب<br>
-🦌 الغزلان<br>
-🎵 الموسيقى<br>
-🤍 اللطف والهدوء<br>
-💖 قلبك الجميل
-</p>
 </div>
 
 <!-- 🌸 زينة -->
 <div class="anim" style="left:10%">🌸</div>
-<div class="anim" style="left:25%;animation-delay:1s">🐰</div>
-<div class="anim" style="left:40%;animation-delay:2s">✨</div>
-<div class="anim" style="left:55%;animation-delay:3s">🦌</div>
-<div class="anim" style="left:70%;animation-delay:4s">🌷</div>
-<div class="anim" style="left:85%;animation-delay:2s">💖</div>
-
-<script>
-// المفاجأة
-function showSecret(){
-    document.getElementById("secret").style.display="block";
-}
-
-// كلمة السر
-let password = prompt("🔐 ادخلي كلمة السر");
-
-if(password !== "Yasmine14"){
-    document.body.innerHTML =
-    "<h1 style='margin-top:100px;color:#ff6fae'>💔 كلمة السر خاطئة</h1>";
-}
-
-// عد تنازلي بسيط
-const birthday = new Date("July 13, 2026").getTime();
-
-setInterval(function(){
-let now = new Date().getTime();
-let d = Math.floor((birthday-now)/(1000*60*60*24));
-
-document.getElementById("countdown").innerHTML =
-"🎉 باقي " + d + " يوم على عيد الميلاد";
-},1000);
-</script>
+<div class="anim" style="left:30%">🐰</div>
+<div class="anim" style="left:50%">✨</div>
+<div class="anim" style="left:70%">🌷</div>
+<div class="anim" style="left:90%">💖</div>
 
 </body>
 </html>
