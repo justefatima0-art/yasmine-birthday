@@ -15,6 +15,29 @@ body{
     overflow-x:hidden;
 }
 
+/* 🔐 شاشة الدخول */
+#login{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(180deg,#ffeef7,#ffffff);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+#login input{
+    padding:12px;
+    border-radius:20px;
+    border:1px solid #ccc;
+    text-align:center;
+    margin-top:10px;
+}
+
 header{
     padding:60px 20px;
 }
@@ -50,7 +73,7 @@ h1{
     font-weight:bold;
 }
 
-/* الأنيميشن (تصحيح فقط بدون تكرار) */
+/* الأنيميشن */
 .anim {
     position: fixed;
     top: -50px;
@@ -72,6 +95,19 @@ h1{
 </head>
 
 <body>
+
+<!-- 🔐 شاشة كلمة السر -->
+<div id="login">
+    <h2>🔐 دخول خاص</h2>
+    <p>أدخل كلمة السر لفتح الموقع 💖</p>
+
+    <input type="password" id="password" placeholder="كلمة السر">
+    <br>
+
+    <button class="btn" onclick="checkPassword()">دخول</button>
+
+    <p id="error" style="color:red;display:none;">كلمة السر خاطئة ❌</p>
+</div>
 
 <!-- 🌸 عناصر متحركة -->
 <div class="anim" style="left:5%">🦌</div>
@@ -149,6 +185,16 @@ h1{
 </div>
 
 <script>
+function checkPassword(){
+    const pass = document.getElementById("password").value;
+
+    if(pass === "yasmine123"){
+        document.getElementById("login").style.display = "none";
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+
 function playMusic(){
     const music = document.getElementById("music");
     music.play().catch(() => {
@@ -156,7 +202,7 @@ function playMusic(){
     });
 }
 
-// تشغيل أول مرة عند أي ضغط في الصفحة (اختياري)
+// تشغيل أول مرة عند أي ضغط في الصفحة
 document.addEventListener("click", function(){
     document.getElementById("music").play().catch(()=>{});
 }, { once:true });
