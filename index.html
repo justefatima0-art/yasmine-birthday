@@ -106,9 +106,13 @@ I LOVE YOU 🤍
 
 // 🎁 فتح الهدية
 function start(){
+document.getElementById("startScreen").style.opacity="0";
+
+setTimeout(()=>{
 document.getElementById("startScreen").style.display="none";
 document.getElementById("content").style.display="block";
 document.getElementById("music").play();
+},800);
 }
 
 // 💌 إظهار الرسالة
