@@ -1,193 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Gift For You 💖</title>
+<title>For Yasmine 💗 Cinematic World</title>
 
 <style>
-body{
-margin:0;
-overflow:hidden;
-font-family:Arial;
-background:black;
-color:white;
-text-align:center;
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial;
+    background: black;
 }
 
-/* شاشة البداية */
-#startScreen{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:10;
-transition:opacity 0.8s ease;
+/* شاشة الدخول */
+#login {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#ffd6e7, #0b0b1a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    color: white;
 }
 
-#startBtn{
-padding:15px 30px;
-font-size:18px;
-border:none;
-border-radius:30px;
-background:#ffb6c1;
-cursor:pointer;
-font-weight:bold;
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
 }
 
-/* المحتوى */
-#content{
-display:none;
-padding-top:40px;
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4f9a;
+    color: white;
+    cursor: pointer;
 }
 
-/* رسالة */
-#message{
-width:80%;
-margin:auto;
-background:rgba(255,255,255,0.1);
-padding:20px;
-border-radius:20px;
-line-height:1.8;
+/* المشهد */
+#scene {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to top, #0b0b1a, #1a1a3a);
 }
 
-/* عناصر متحركة */
-.fall{
-position:absolute;
-font-size:18px;
-animation:drop 8s linear infinite;
+/* قمر */
+#moon {
+    position: absolute;
+    width: 120px;
+    top: 60px;
+    left: -150px;
+    animation: moonMove 40s linear infinite;
 }
 
-@keyframes drop{
-0%{transform:translateY(-50px);opacity:1;}
-100%{transform:translateY(110vh);opacity:0;}
+@keyframes moonMove {
+    from {left: -150px;}
+    to {left: 110%;}
 }
 
-/* انفجار */
-.burst{
-position:absolute;
-font-size:20px;
-animation:burstAnim 1.5s ease-out forwards;
+/* غزال HD */
+.deer {
+    position: absolute;
+    bottom: 60px;
+    width: 180px;
+    animation: deerMove 12s linear infinite;
 }
 
-@keyframes burstAnim{
-0%{transform:scale(0);opacity:1;}
-100%{transform:scale(2);opacity:0;}
+@keyframes deerMove {
+    from {left: -200px;}
+    to {left: 110%;}
 }
+
+/* أرانب */
+.rabbit {
+    position: absolute;
+    bottom: 40px;
+    width: 80px;
+    animation: jump 2.5s infinite;
+}
+
+@keyframes jump {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-60px);}
+    100% {transform: translateY(0);}
+}
+
+/* مطر */
+.rain {
+    position: absolute;
+    width: 1.5px;
+    height: 20px;
+    background: white;
+    opacity: 0.6;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from {transform: translateY(-100vh);}
+    to {transform: translateY(100vh);}
+}
+
+/* برق */
+.flash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+}
+
 </style>
 </head>
 
 <body>
-<div style="
-position:fixed;
-width:100%;
-height:100%;
-background:radial-gradient(circle, rgba(255,182,193,0.15), transparent);
-pointer-events:none;
-"></div>
-<!-- 🎁 شاشة البداية -->
-<div id="startScreen">
-<h1>🎁 A Gift For You</h1>
-<button id="startBtn" onclick="start()">🎁 Open Your Surprise 💖</button>
+
+<!-- 🔐 دخول -->
+<div id="login">
+    <h2>💗 أدخل كلمة السر</h2>
+    <input type="password" id="pass" placeholder="••••••">
+    <button onclick="check()">دخول</button>
 </div>
 
-<!-- 💖 المحتوى -->
-<div id="content">
-
-<h1>💖 For You Only 💖</h1>
-
-<button onclick="showMessage()">Open Message 💌</button>
-
-<div id="message" style="display:none;">
-يااسميننعهه 💖🤍✨  
-إيلافيووو ءموااحهه 💕😭  
-
-علابالي بلي عندك 28 يوم هكاك ونتي تستنايي في وش درتلكك،  
-واظن انك متوقعتيهاش 💌  
-
-المهمم كل عام وانتي بخير ججييرليي 😭🤏  
-
-وان شاء الله تعود عليك 14 سنة كاملة،  
-كنتِ فرحانه فيهاا 🌸✨  
-
-ولعقوبة لسنوات جديدة من عمركك 💖  
-
-نتمنى نكون معاك فيها 🤍  
-باسكو والله نعشقكك ونحبكك 😭💕
-
-يااارب ما يفارقناش الخير 🤍  
-I LOVE YOU 💖
-</div>
-</div>
-
+<!-- 🎧 موسيقى -->
 <audio id="music" loop>
-<source src="Lana Del Rey - Brooklyn Baby (Official Audio)(mp3j.cc).mp3" type="audio/mpeg">
+    <source src="https://files.catbox.moe/8q5v6x.mp3">
 </audio>
+
+<div id="flash" class="flash"></div>
+
+<div id="scene">
+
+    <!-- 🌙 القمر -->
+    <img id="moon" src="https://i.imgur.com/9XH1XyS.png">
+
+    <!-- 🦌 غزال -->
+    <img class="deer" src="https://i.imgur.com/6XQZbXy.png">
+
+    <!-- 🐇 أرانب -->
+    <img class="rabbit" style="left:30%" src="https://i.imgur.com/2yaf2wb.png">
+    <img class="rabbit" style="left:70%" src="https://i.imgur.com/2yaf2wb.png">
 
 </div>
 
 <script>
 
-/* 🎁 فتح الهدية */
-function start(){
-document.getElementById("startScreen").style.opacity="0";
+/* كلمة السر من اختيارك */
+let password = "YASMINE1930"; // 👈 غيّرها هنا
 
-setTimeout(()=>{
-document.getElementById("startScreen").style.display="none";
-document.getElementById("content").style.display="block";
-document.getElementById("music").play();
-
-burst();
-},800);
+function check(){
+    let p = document.getElementById("pass").value;
+    if(p === password){
+        document.getElementById("login").style.display = "none";
+        document.getElementById("scene").style.display = "block";
+        document.getElementById("music").play();
+        startRain();
+        lightning();
+    } else {
+        alert("كلمة السر خاطئة 💔");
+    }
 }
 
-/* ✨ انفجار */
-function burst(){
-for(let i=0;i<40;i++){
-let s=document.createElement("div");
-s.className="burst";
-s.innerHTML="✨";
-s.style.left=Math.random()*100+"vw";
-s.style.top=Math.random()*100+"vh";
-document.body.appendChild(s);
-
-setTimeout(()=>{s.remove()},1500);
-}
+/* 🌧️ مطر واقعي */
+function startRain(){
+    for(let i=0;i<200;i++){
+        let r = document.createElement("div");
+        r.className = "rain";
+        r.style.left = Math.random()*100 + "vw";
+        r.style.animationDuration = (Math.random()*1+0.5) + "s";
+        document.body.appendChild(r);
+    }
 }
 
-/* 💌 الرسالة */
-function showMessage(){
-document.getElementById("message").style.display="block";
-}
-
-/* 🌧️ مطر */
-function rain(){
-let drop=document.createElement("div");
-drop.innerHTML="🌧️";
-drop.style.position="absolute";
-drop.style.left=Math.random()*100+"vw";
-drop.style.top="-20px";
-drop.style.fontSize="18px";
-drop.style.animation="drop 6s linear";
-document.body.appendChild(drop);
-
-setTimeout(()=>{drop.remove()},6000);
-}
-setInterval(rain,500);
-
-/* 🌸 عناصر عشوائية */
-let symbols=["🌸","✨","🌙","💖"];
-for(let i=0;i<60;i++){
-let d=document.createElement("div");
-d.className="fall";
-d.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
-d.style.left=Math.random()*100+"vw";
-d.style.animationDuration=(Math.random()*5+4)+"s";
-d.style.fontSize=(Math.random()*18+10)+"px";
-document.body.appendChild(d);
+/* ⚡ برق */
+function lightning(){
+    setInterval(()=>{
+        let flash = document.getElementById("flash");
+        flash.style.opacity = "0.8";
+        setTimeout(()=>flash.style.opacity="0",100);
+    }, 5000);
 }
 
 </script>
