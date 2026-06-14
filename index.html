@@ -2,17 +2,17 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>For Yasmine 💗 Cinematic World</title>
+<title>For Yasmine 💗</title>
 
 <style>
 body {
     margin: 0;
     overflow: hidden;
     font-family: Arial;
-    background: black;
+    background: linear-gradient(135deg, #ffd6e7, #ffeefc, #dfe9ff);
 }
 
-/* شاشة الدخول */
+/* 🔐 تسجيل الدخول */
 #login {
     position: fixed;
     width: 100%;
@@ -43,20 +43,20 @@ button {
     cursor: pointer;
 }
 
-/* المشهد */
+/* 🌍 المشهد */
 #scene {
     display: none;
     width: 100%;
     height: 100vh;
     position: relative;
-    background: linear-gradient(to top, #0b0b1a, #1a1a3a);
+    overflow: hidden;
 }
 
-/* قمر */
+/* 🌙 قمر */
 #moon {
     position: absolute;
     width: 120px;
-    top: 60px;
+    top: 50px;
     left: -150px;
     animation: moonMove 40s linear infinite;
 }
@@ -66,11 +66,11 @@ button {
     to {left: 110%;}
 }
 
-/* غزال HD */
+/* 🦌 غزال */
 .deer {
     position: absolute;
     bottom: 60px;
-    width: 180px;
+    width: 170px;
     animation: deerMove 12s linear infinite;
 }
 
@@ -79,7 +79,7 @@ button {
     to {left: 110%;}
 }
 
-/* أرانب */
+/* 🐇 أرانب */
 .rabbit {
     position: absolute;
     bottom: 40px;
@@ -93,11 +93,11 @@ button {
     100% {transform: translateY(0);}
 }
 
-/* مطر */
+/* 🌧️ مطر */
 .rain {
     position: absolute;
-    width: 1.5px;
-    height: 20px;
+    width: 2px;
+    height: 18px;
     background: white;
     opacity: 0.6;
     animation: fall linear infinite;
@@ -108,7 +108,7 @@ button {
     to {transform: translateY(100vh);}
 }
 
-/* برق */
+/* ⚡ برق */
 .flash {
     position: fixed;
     width: 100%;
@@ -118,10 +118,32 @@ button {
     pointer-events: none;
 }
 
+/* 💌 الرسالة */
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.75);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.8;
+}
 </style>
 </head>
 
 <body>
+
+<!-- 🎧 موسيقى -->
+<audio id="music" loop>
+  <source src="brooklyn-baby.mp3" type="audio/mpeg">
+</audio>
 
 <!-- 🔐 دخول -->
 <div id="login">
@@ -130,51 +152,11 @@ button {
     <button onclick="check()">دخول</button>
 </div>
 
-<!-- 🎧 موسيقى -->
-<audio id="music" loop>
-  <source src="Lana Del Rey - Brooklyn Baby (Official Audio)(mp3j.cc).mp3" type="audio/mpeg">
-</audio>
-
 <div id="flash" class="flash"></div>
 
+<!-- 🌍 المشهد -->
 <div id="scene">
-<div style="
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:85%;
-max-height:80vh;
-overflow-y:auto;
-background:rgba(255,255,255,0.75);
-padding:20px;
-border-radius:20px;
-text-align:center;
-color:#333;
-font-size:18px;
-line-height:1.8;
-">
 
-<h2>💗 رسالة لكِ 💗</h2>
-
-<p>
-ياااععهه يااسميننعهه ايلاافيووو ءموااحهه<br><br>
-
-علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك<br>
-واضنن انك متوقعتيهاشش<br><br>
-
-المهمم كل عاامم ونتيي بخيرر ججييرليي😭🤏<br>
-وانشاء الله تعود مرت عليك 14 سنة كاملهعهه<br>
-كنتي فرحاانهعهه فيهاا ولعقوبةة لسنوااتت جديدة من عمركك<br><br>
-
-والله اعشقكك واحبكك😭💕<br>
-ونتمنالك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو<br><br>
-
-والي تفرحكك تفرحني اكثرر منكك<br>
-والي تنويك تنويني اكثرر منكك 😭🙏
-</p>
-
-</div>
     <!-- 🌙 القمر -->
     <img id="moon" src="https://i.imgur.com/9XH1XyS.png">
 
@@ -185,12 +167,18 @@ line-height:1.8;
     <img class="rabbit" style="left:30%" src="https://i.imgur.com/2yaf2wb.png">
     <img class="rabbit" style="left:70%" src="https://i.imgur.com/2yaf2wb.png">
 
+    <!-- 💌 الرسالة -->
+    <div class="message">
+        <h2>💗 رسالة لكِ 💗</h2>
+        <p id="message"></p>
+    </div>
+
 </div>
 
 <script>
 
-/* كلمة السر من اختيارك */
-let password = "YASMINE1930"; // 👈 غيّرها هنا
+/* 🔐 كلمة السر (غيرها أنت) */
+let password = "yasmine";
 
 function check(){
     let p = document.getElementById("pass").value;
@@ -200,18 +188,31 @@ function check(){
         document.getElementById("music").play();
         startRain();
         lightning();
+        typeWriter();
     } else {
         alert("كلمة السر خاطئة 💔");
     }
 }
 
-/* 🌧️ مطر واقعي */
+/* 💌 الرسالة حرف حرف */
+const text = `وااععهه يااسميننعهه ايلاافيووو ءموااحهه علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش المهمم كل عاامم ونتيي بخيرر ججييرليي😭🤏 وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك😭💕ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏`;
+
+let i = 0;
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+    }
+}
+
+/* 🌧️ مطر */
 function startRain(){
-    for(let i=0;i<200;i++){
+    for(let i=0;i<150;i++){
         let r = document.createElement("div");
         r.className = "rain";
         r.style.left = Math.random()*100 + "vw";
-        r.style.animationDuration = (Math.random()*1+0.5) + "s";
+        r.style.animationDuration = (Math.random()*1+0.5)+"s";
         document.body.appendChild(r);
     }
 }
@@ -221,7 +222,7 @@ function lightning(){
     setInterval(()=>{
         let flash = document.getElementById("flash");
         flash.style.opacity = "0.8";
-        setTimeout(()=>flash.style.opacity="0",100);
+        setTimeout(()=>flash.style.opacity="0",120);
     }, 5000);
 }
 
