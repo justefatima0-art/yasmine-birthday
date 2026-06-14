@@ -87,8 +87,24 @@ brooklyn-baby.mp3
 -->
 
 <audio id="music" controls>
-  <source src="brooklyn-baby.mp3" type="audio/mpeg">
+  <source src="./brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
+
+<br><br>
+
+<button class="btn" onclick="playMusic()">
+🎵 تشغيل الأغنية
+</button>
+
+<script>
+function playMusic(){
+    const music = document.getElementById("music");
+    music.load();   // مهم جدًا لإعادة تحميل الملف
+    music.play().catch(err => {
+        alert("المتصفح منع التشغيل التلقائي، اضغطي على زر التشغيل داخل المشغل نفسه 🎵");
+    });
+}
+</script>
 
 <br><br>
 
