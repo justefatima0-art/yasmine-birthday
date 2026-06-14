@@ -12,7 +12,7 @@ body {
     background: linear-gradient(135deg, #ffd6e7, #ffeefc, #dfe9ff);
 }
 
-/* 🔐 تسجيل الدخول */
+/* 🔐 login */
 #login {
     position: fixed;
     width: 100%;
@@ -43,7 +43,7 @@ button {
     cursor: pointer;
 }
 
-/* 🌍 المشهد */
+/* 🌍 scene */
 #scene {
     display: none;
     width: 100%;
@@ -52,34 +52,29 @@ button {
     overflow: hidden;
 }
 
-/* 🌙 قمر */
+/* 🌙 moon */
 #moon {
     position: absolute;
     width: 120px;
     top: 50px;
     left: -150px;
-    animation: moonMove 40s linear infinite;
+    animation: move 40s linear infinite;
 }
 
-@keyframes moonMove {
+@keyframes move {
     from {left: -150px;}
     to {left: 110%;}
 }
 
-/* 🦌 غزال */
+/* 🦌 deer */
 .deer {
     position: absolute;
     bottom: 60px;
     width: 170px;
-    animation: deerMove 12s linear infinite;
+    animation: move 12s linear infinite;
 }
 
-@keyframes deerMove {
-    from {left: -200px;}
-    to {left: 110%;}
-}
-
-/* 🐇 أرانب */
+/* 🐇 rabbits */
 .rabbit {
     position: absolute;
     bottom: 40px;
@@ -93,7 +88,7 @@ button {
     100% {transform: translateY(0);}
 }
 
-/* 🌧️ مطر */
+/* 🌧️ rain */
 .rain {
     position: absolute;
     width: 2px;
@@ -108,7 +103,7 @@ button {
     to {transform: translateY(100vh);}
 }
 
-/* ⚡ برق */
+/* ⚡ flash */
 .flash {
     position: fixed;
     width: 100%;
@@ -118,7 +113,7 @@ button {
     pointer-events: none;
 }
 
-/* 💌 الرسالة */
+/* 💌 message box */
 .message {
     position: absolute;
     top: 50%;
@@ -140,12 +135,12 @@ button {
 
 <body>
 
-<!-- 🎧 موسيقى -->
+<!-- 🎧 music -->
 <audio id="music" loop>
   <source src="brooklyn-baby.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🔐 دخول -->
+<!-- 🔐 login -->
 <div id="login">
     <h2>💗 أدخل كلمة السر</h2>
     <input type="password" id="pass" placeholder="••••••">
@@ -154,20 +149,15 @@ button {
 
 <div id="flash" class="flash"></div>
 
-<!-- 🌍 المشهد -->
+<!-- 🌍 scene -->
 <div id="scene">
 
-    <!-- 🌙 القمر -->
     <img id="moon" src="https://i.imgur.com/9XH1XyS.png">
-
-    <!-- 🦌 غزال -->
     <img class="deer" src="https://i.imgur.com/6XQZbXy.png">
 
-    <!-- 🐇 أرانب -->
     <img class="rabbit" style="left:30%" src="https://i.imgur.com/2yaf2wb.png">
     <img class="rabbit" style="left:70%" src="https://i.imgur.com/2yaf2wb.png">
 
-    <!-- 💌 الرسالة -->
     <div class="message">
         <h2>💗 رسالة لكِ 💗</h2>
         <p id="message"></p>
@@ -177,36 +167,43 @@ button {
 
 <script>
 
-/* 🔐 كلمة السر (غيرها أنت) */
+/* 🔐 password */
 let password = "yasmine";
 
+/* 💌 full message */
+const text = `وااععهه يااسميننعهه ايلاافيووو ءموااحهه علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش المهمم كل عاامم ونتيي بخيرر ججييرليي😭🤏 وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك😭💕ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏ياااربيي ولاا عمر 14`;
+
+let i = 0;
+
+/* ✨ typing effect */
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 30);
+    }
+}
+
+/* 🔐 login check */
 function check(){
     let p = document.getElementById("pass").value;
+
     if(p === password){
         document.getElementById("login").style.display = "none";
         document.getElementById("scene").style.display = "block";
+
         document.getElementById("music").play();
+
         startRain();
         lightning();
+
         typeWriter();
     } else {
         alert("كلمة السر خاطئة 💔");
     }
 }
 
-/* 💌 الرسالة حرف حرف */
-const text = `وااععهه يااسميننعهه ايلاافيووو ءموااحهه علابالي بلي عندك 28 يوم هكاك ونتي تستناايي في وش درتلكك واضنن انك متوقعتيهاشش المهمم كل عاامم ونتيي بخيرر ججييرليي😭🤏 وانشاء الله تعود مرت عليك 14 سنة كاملهعهه كنتي فرحاانهعهه فيهاا ولعقوبةة لسنوااتت جديدة من عمركك الي نتمنى اني نكوونن فيهمم باسكوو والله اعشقكك واحبكك😭💕ونتمنالكك سنواات قادمةة احسنن وافضلل من سنوات الي فاتوو ونتمنى انوو تكونيي فرحاانعه فيهمم بااسكوو الي تفرحكك تفرحني اكثرر منكك والي تنويك تنويني اكثرر منكك 😭🙏`;
-
-let i = 0;
-function typeWriter(){
-    if(i < text.length){
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 35);
-    }
-}
-
-/* 🌧️ مطر */
+/* 🌧️ rain */
 function startRain(){
     for(let i=0;i<150;i++){
         let r = document.createElement("div");
@@ -217,7 +214,7 @@ function startRain(){
     }
 }
 
-/* ⚡ برق */
+/* ⚡ lightning */
 function lightning(){
     setInterval(()=>{
         let flash = document.getElementById("flash");
