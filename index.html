@@ -81,7 +81,13 @@ animation:burstAnim 1.5s ease-out forwards;
 </head>
 
 <body>
-
+<div style="
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle, rgba(255,182,193,0.15), transparent);
+pointer-events:none;
+"></div>
 <!-- 🎁 شاشة البداية -->
 <div id="startScreen">
 <h1>🎁 A Gift For You</h1>
@@ -162,7 +168,7 @@ document.body.appendChild(drop);
 
 setTimeout(()=>{drop.remove()},6000);
 }
-setInterval(rain,300);
+setInterval(rain,500);
 
 /* 🌸 عناصر عشوائية */
 let symbols=["🌸","✨","🌙","💖"];
